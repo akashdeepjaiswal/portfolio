@@ -2,18 +2,20 @@ export const personalInfo = {
   name: "Akashdeep Jaiswal",
   title: "Senior Software Engineer",
   badge: "Available for opportunities",
-  summary: "Senior Frontend Engineer with 5+ years of experience building scalable web applications using Vue.js, React.js, and JavaScript. Skilled in performance optimization, PWAs, and frontend architecture, with experience delivering high-impact features for Domino's India.",
+  summary: "Senior Software Engineer with 5+ years of experience building scalable, high-performance web applications using JavaScript, React.js, and Vue.js. Experienced in leading frontend development for large-scale consumer products, including Domino's India, with strong expertise in PWA development, frontend architecture, web performance optimization, and cross-platform experiences.",
   about: [
-    "I'm a passionate Senior Frontend Engineer currently working at Jubilant Foodworks Ltd, where I lead the development of customer-facing web applications for Domino's India.",
-    "My expertise lies in crafting high-performance, user-centric web experiences using modern JavaScript frameworks. I've successfully improved Lighthouse performance scores from 35 to 85+, implemented PWAs, and delivered features that drive real business impact — including a 6% increase in website traffic.",
-    "When I'm not coding, I love playing volleyball, playing games, spending quality time with my family, and exploring new web technologies."
+    "I'm a Senior Software Engineer with 5+ years of experience building scalable, high-performance web applications using JavaScript, React.js, and Vue.js.",
+    "Currently at Jubilant Foodworks Ltd, I lead frontend development for key customer-facing products at Domino's India. My expertise includes building high-impact PWAs, optimizing Lighthouse performance scores from 35 to 85+, designing config-driven UI components, implementing feature flags and A/B testing infrastructure, and delivering seamless cross-platform experiences.",
+    "When I'm not coding, I enjoy exploring modern web architectures, staying up-to-date with emerging tech, and spending quality time with family."
   ],
   contact: {
-    email: "akashdeep0897@gmail.com",
+    email: "akashdeep1jaypee@gmail.com",
+    phone: "+91 8920009380",
     github: "https://github.com/akashdeepjaiswal",
     githubUsername: "akashdeepjaiswal",
     linkedin: "https://www.linkedin.com/in/akashdeep-jaiswal",
-    linkedinUsername: "akashdeep-jaiswal"
+    linkedinUsername: "akashdeep-jaiswal",
+    portfolio: "https://akashdeepjaiswal.github.io/portfolio"
   }
 };
 
@@ -21,43 +23,58 @@ export const statsData = [
   { number: 5, suffix: "+", label: "Years Experience" },
   { number: 3, suffix: "", label: "Companies" },
   { number: 85, suffix: "+", label: "Lighthouse Score" },
-  { number: 6, suffix: "%", label: "Traffic Increase" }
+  { number: 9, suffix: "%", label: "Traffic Increase" }
 ];
 
 export const experienceData = [
   {
     role: "Senior Software Engineer",
-    company: "Jubilant Foodworks Ltd",
+    company: "Jubilant Foodworks Ltd — Domino's India",
     date: "Aug 2022 — Present",
     location: "Gurgaon",
-    points: [
-      "Led a small team to deliver key customer-facing features for Domino's, including NextGen Cart and Loyalty 2.0. Loyalty 2.0 was successfully launched across Android, iOS, PWA, and Desktop, driving customer engagement (m.dominos.co.in).",
-      "Currently leading the development of the next-generation Domino's PWA while maintaining the legacy web platform. Improved the Lighthouse performance score from 35 to 85+ by implementing code splitting, rendering and loading optimizations.",
-      "Enhanced the homepage user experience by implementing smooth UI transitions and interactions, contributing to a 6% increase in website traffic."
+    highlights: [
+      { badge: "🚀 Loyalty 2.0 & NextGen Cart", desc: "Cross-platform launch on PWA, iOS, Android & Desktop" },
+      { badge: "⚡ 35 ➔ 85+ Lighthouse", desc: "Code splitting & rendering optimization" },
+      { badge: "📈 +9% Web Traffic", desc: "Enhanced homepage transitions & performance" }
     ],
-    tags: ["Vue.js", "PWA", "Performance Optimization", "Team Lead"]
+    points: [
+      "Led frontend team delivering key customer-facing products including NextGen Cart & Loyalty 2.0 across PWA, Android, iOS, and Desktop (m.dominos.co.in).",
+      "Engineered next-gen Domino's PWA while maintaining legacy platform, improving Lighthouse performance score from 35 to 85+.",
+      "Optimized homepage interactions and built instant-loading splash screen, contributing to a 9% increase in web traffic.",
+      "Implemented A/B testing & feature-flag infrastructure with config-driven UI components for release independence.",
+      "Integrated Ambit and Amplitude analytics across complex user journeys to enable data-driven product decisions."
+    ],
+    tags: ["Vue.js", "React.js", "PWA Architecture", "Performance Optimization", "A/B Testing", "Feature Flags", "Config-Driven UI", "Analytics"]
   },
   {
     role: "Software Developer-1",
     company: "GTROPY",
     date: "May 2021 — Aug 2022",
-    location: "Work From Home",
-    points: [
-      "Working with Frontend Development Team in a fast-paced environment. Building UI with React.js mainly. Maintaining the website, continuously fixing bugs and optimizing the web.",
-      "Built the control ticketing system of the company for customer support from scratch."
+    location: "Gurgaon",
+    highlights: [
+      { badge: "🎫 Support Ticketing System", desc: "Built end-to-end workflow from scratch" },
+      { badge: "⚛️ React.js Platform", desc: "Production feature delivery & performance optimization" }
     ],
-    tags: ["React.js", "Frontend", "Ticketing System", "UI Optimization"]
+    points: [
+      "Developed and maintained production web applications using React.js, focusing on UI responsiveness and performance.",
+      "Built company's customer-support ticketing system from scratch, designing frontend workflow for ticket management.",
+      "Collaborated with frontend team in Agile sprints to resolve production issues and improve platform stability."
+    ],
+    tags: ["React.js", "JavaScript", "Frontend Architecture", "Ticketing System", "Agile", "UI Optimization"]
   },
   {
-    role: "Programmer Analyst Trainee + Internship",
+    role: "Programmer Analyst Trainee",
     company: "Cognizant",
     date: "Feb 2020 — May 2021",
     location: "Chennai",
-    points: [
-      "Hands-on experience in Web Technologies.",
-      "Gained knowledge of various web technologies such as HTML, CSS, JavaScript, Bootstrap."
+    highlights: [
+      { badge: "🌐 Web Technologies", desc: "Modern web stack & software engineering foundations" }
     ],
-    tags: ["HTML", "CSS", "JavaScript", "Bootstrap"]
+    points: [
+      "Gained hands-on experience building web solutions using HTML5, CSS3, JavaScript, and Bootstrap.",
+      "Contributed to core frontend development tasks while mastering foundational software engineering practices."
+    ],
+    tags: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Web Architecture"]
   }
 ];
 
@@ -73,15 +90,17 @@ export const skillsData = [
 ];
 
 export const secondarySkills = [
+  "Vuex & Redux",
   "System Design (LLD/HLD)",
-  "Web Performance",
+  "Frontend Architecture",
+  "PWA Development",
+  "Web Performance Optimization",
+  "A/B Testing",
+  "Config-Driven UI",
+  "Feature Flags",
   "Web Security",
-  "Git and Version Control",
-  "Agile",
   "Responsive Design",
-  "REST APIs",
-  "Code Splitting",
-  "Accessibility"
+  "Agile"
 ];
 
 export const projectsData = [
@@ -90,8 +109,7 @@ export const projectsData = [
     title: "Amazon Clone",
     subtitle: "E-Commerce Store",
     desc: "Built an E-Commerce Website using React.js with product listings, cart functionality, and checkout flow.",
-    tech: ["React.js", "CSS"],
-    github: "https://github.com/akashdeepjaiswal"
+    tech: ["React.js", "CSS"]
   },
   {
     number: "02",
@@ -130,14 +148,14 @@ export const educationData = [
   {
     type: "degree",
     year: "2014 — 2015",
-    title: "CBSE Senior Secondary Examination (10+2)",
-    institution: "Lal Bahadur Shastri Smarak Javm School, Delhi",
+    title: "CBSE Senior Secondary School (10+2)",
+    institution: "LBS School, Delhi",
     grade: "Percentage: 82.6%"
   },
   {
     type: "degree",
     year: "2012 — 2013",
-    title: "CBSE High School Examination (10)",
+    title: "CBSE High School (10)",
     institution: "Sunbeam School, Varanasi",
     grade: "CGPA: 9.6"
   }
@@ -148,13 +166,13 @@ export const certsData = [
     year: "Jan 2020",
     title: "Web Development Bootcamp",
     institution: "Udemy",
-    desc: "Gained knowledge on Web Technologies like HTML, CSS, JavaScript, React.js etc."
+    desc: "Gained knowledge on Web Technologies like HTML, CSS, JavaScript, Node.js, React.js etc."
   },
   {
     year: "Jun 2019 — Jul 2019",
     title: "Data Structures and Algorithms",
     institution: "GeeksforGeeks, Noida",
-    desc: "Learned various concepts of Data Structures and their application."
+    desc: "Learned various concepts of Data Structures and Algorithms."
   }
 ];
 

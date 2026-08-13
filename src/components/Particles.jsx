@@ -1,54 +1,149 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export default function Particles({ theme }) {
-  const [particles, setParticles] = useState([]);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', handleResize);
+
+    const mouse = { x: null, y: null, radius: 180 };
+    const handleMouseMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+    const handleMouseLeave = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
+
     const isDark = theme !== 'light';
-    const colors = isDark
-      ? [
-          'rgba(56, 189, 248, 0.45)',
-          'rgba(168, 85, 247, 0.4)',
-          'rgba(244, 63, 94, 0.35)',
-          'rgba(99, 102, 241, 0.4)'
-        ]
-      : [
-          'rgba(37, 99, 235, 0.3)',
-          'rgba(124, 58, 237, 0.25)',
-          'rgba(219, 39, 119, 0.25)',
-          'rgba(14, 165, 233, 0.3)'
-        ];
+    const particleCount = Math.min(Math.floor((width * height) / 12000), 75);
 
-    const generated = Array.from({ length: 30 }).map((_, i) => ({
-      id: i,
-      size: Math.random() * 3 + 1,
-      left: Math.random() * 100,
-      duration: Math.random() * 20 + 15,
-      delay: Math.random() * 15,
-      opacity: Math.random() * 0.5 + 0.1,
-      background: colors[Math.floor(Math.random() * colors.length)]
-    }));
+    const particleColors = isDark
+      ? ['#38bdf8', '#818cf8', '#c084fc', '#f43f5e', '#34d399']
+      : ['#2563eb', '#7c3aed', '#db2777', '#0284c7'];
 
-    setParticles(generated);
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 2.2 + 1;
+        this.baseX = this.x;
+        this.baseY = this.y;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.color = particleColors[Math.floor(Math.random() * particleColors.length)];
+        this.alpha = Math.random() * 0.6 + 0.3;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.alpha;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+
+        // Mouse interaction push
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < mouse.radius) {
+            const forceDirectionX = dx / distance;
+            const forceDirectionY = dy / distance;
+            const force = (mouse.radius - distance) / mouse.radius;
+            const directionX = forceDirectionX * force * 3;
+            const directionY = forceDirectionY * force * 3;
+
+            this.x -= directionX;
+            this.y -= directionY;
+          }
+        }
+      }
+    }
+
+    const particleArray = Array.from({ length: particleCount }, () => new Particle());
+
+    const connectParticles = () => {
+      const maxDistance = 140;
+      for (let a = 0; a < particleArray.length; a++) {
+        for (let b = a + 1; b < particleArray.length; b++) {
+          const dx = particleArray[a].x - particleArray[b].x;
+          const dy = particleArray[a].y - particleArray[b].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < maxDistance) {
+            const opacity = 1 - distance / maxDistance;
+            ctx.strokeStyle = isDark ? `rgba(56, 189, 248, ${opacity * 0.22})` : `rgba(37, 99, 235, ${opacity * 0.15})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(particleArray[a].x, particleArray[a].y);
+            ctx.lineTo(particleArray[b].x, particleArray[b].y);
+            ctx.stroke();
+          }
+        }
+      }
+    };
+
+    const animate = () => {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particleArray.length; i++) {
+        particleArray[i].update();
+        particleArray[i].draw();
+      }
+      connectParticles();
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, [theme]);
 
   return (
-    <div className="particles">
-      {particles.map((p) => (
-        <div
-          key={p.id}
-          className="particle"
-          style={{
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-            left: `${p.left}%`,
-            animationDuration: `${p.duration}s`,
-            animationDelay: `${p.delay}s`,
-            opacity: p.opacity,
-            background: p.background
-          }}
-        />
-      ))}
-    </div>
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        pointerEvents: 'none',
+        zIndex: 0
+      }}
+    />
   );
 }

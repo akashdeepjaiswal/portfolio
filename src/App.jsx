@@ -32,7 +32,7 @@ export default function App() {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  // Scroll Reveal & Active Nav Observer
+  // Scroll Reveal & Active Nav Observer & Mouse Spotlight
   useEffect(() => {
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -49,7 +49,6 @@ export default function App() {
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach((el) => {
       revealObserver.observe(el);
-      // Immediately reveal elements already near top of viewport
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight) {
         el.classList.add('visible');
@@ -71,9 +70,29 @@ export default function App() {
     const sections = document.querySelectorAll('section[id]');
     sections.forEach((sec) => sectionObserver.observe(sec));
 
+    // Card mouse spotlight position listener
+    const handleCardMouseMove = (e) => {
+      const card = e.currentTarget;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    };
+
+    const cards = document.querySelectorAll(
+      '.project-card, .skill-icon-card, .timeline-content, .detail-card, .contact-card, .edu-card, .profile-card'
+    );
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', handleCardMouseMove);
+    });
+
     return () => {
       revealObserver.disconnect();
       sectionObserver.disconnect();
+      cards.forEach((card) => {
+        card.removeEventListener('mousemove', handleCardMouseMove);
+      });
     };
   }, []);
 
