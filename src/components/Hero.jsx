@@ -169,7 +169,7 @@ export default function Hero() {
 
             <div className="hero-floating-pill float-pill-3">
               <span className="pill-emoji">💻</span>
-              <span className="pill-txt">Vue.js & React</span>
+              <span className="pill-txt">React & Vue.js</span>
             </div>
           </div>
         </div>

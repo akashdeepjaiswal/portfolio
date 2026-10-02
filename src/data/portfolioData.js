@@ -100,8 +100,8 @@ export const skillsData = [
 ];
 
 export const secondarySkills = [
-  "Vuex",
   "Redux",
+  "Vuex",
   "PWA",
   "Figma",
   "Ajax",
