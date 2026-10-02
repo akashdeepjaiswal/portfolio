@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { personalInfo, statsData } from '../data/portfolioData';
 
 const TYPED_ROLES = [
-  'Senior Software Engineer',
+  'Senior Software Engineer (Frontend)',
   'Domino\'s PWA Architect',
-  'Vue.js & React.js Expert',
+  'React.js & Vue.js Expert',
   'Web Performance Specialist',
   'Frontend Tech Lead'
 ];
@@ -99,7 +99,7 @@ export default function Hero() {
           </div>
 
           <p className="hero-lead-text animate-fade-up delay-3">
-            Senior Frontend Engineer with <strong>5+ years</strong> of experience building high-scale consumer web applications at <strong>Domino's India</strong>. Specialized in PWA development, Lighthouse optimization, and modern JavaScript architectures.
+            Senior Software Engineer (Frontend) with <strong>6 years</strong> of experience building scalable, high-performance web applications at <strong>Domino's India</strong>. Specialized in frontend architecture, PWA development, Lighthouse optimization, and cross-platform experiences.
           </p>
 
           <div className="hero-cta-group animate-fade-up delay-4">

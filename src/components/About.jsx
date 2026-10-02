@@ -5,7 +5,7 @@ export default function About() {
   const details = [
     {
       title: "Experience",
-      value: "5+ Years in Web Engineering",
+      value: "6 Years in Web Engineering",
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
@@ -15,7 +15,7 @@ export default function About() {
     },
     {
       title: "Current Role",
-      value: "Senior Software Engineer @ Jubilant Foodworks",
+      value: "Senior Software Engineer (Frontend) @ Jubilant Foodworks",
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -25,7 +25,7 @@ export default function About() {
     },
     {
       title: "Specialization",
-      value: "Vue.js, React.js, PWAs, Web Performance",
+      value: "React.js, Vue.js, Frontend Architecture, PWAs",
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polyline points="16 18 22 12 16 6"/>
