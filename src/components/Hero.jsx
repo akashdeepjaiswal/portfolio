@@ -3,7 +3,7 @@ import { personalInfo, statsData } from '../data/portfolioData';
 
 const TYPED_ROLES = [
   'Senior Software Engineer (Frontend)',
-  'Domino\'s PWA Architect',
+  'Domino\'s Web/PWA Lead',
   'React.js & Vue.js Expert',
   'Web Performance Specialist',
   'Frontend Tech Lead'
@@ -159,7 +159,7 @@ export default function Hero() {
             
             <div className="hero-floating-pill float-pill-1">
               <span className="pill-emoji">🍕</span>
-              <span className="pill-txt">Domino's PWA Lead</span>
+              <span className="pill-txt">Domino's Web/PWA Lead</span>
             </div>
             
             <div className="hero-floating-pill float-pill-2">

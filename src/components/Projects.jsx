@@ -15,7 +15,7 @@ export default function Projects() {
 
         <div className="bento-projects-grid">
           {projectsData.map((project, idx) => {
-            const isFeatured = idx === 0 || idx === 1;
+            const isFeatured = idx === 0;
             return (
               <div
                 key={idx}
@@ -40,21 +40,38 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bento-link-btn"
-                      aria-label="View source code"
-                      data-tooltip="View GitHub Code"
-                    >
-                      <span>Code</span>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
-                    </a>
-                  )}
+                  <div className="bento-actions">
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bento-link-btn"
+                        aria-label="View live demo"
+                        data-tooltip="Open Live Demo"
+                      >
+                        <span>Live Demo</span>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                        </svg>
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bento-link-btn"
+                        aria-label="View source code"
+                        data-tooltip="View GitHub Code"
+                      >
+                        <span>Code</span>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             );

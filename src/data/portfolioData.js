@@ -124,33 +124,43 @@ export const secondarySkills = [
 export const projectsData = [
   {
     number: "01",
-    title: "Amazon Clone",
-    subtitle: "E-Commerce Store",
-    desc: "Built an E-Commerce Website using React.js with product listings, cart functionality, and checkout flow.",
-    tech: ["React.js", "CSS"]
+    title: "ContractLens",
+    subtitle: "AI Contract Intelligence Platform",
+    desc: "AI-powered contract and clause extractor for non-lawyers. Built with a 3-pass extraction pipeline (structure analysis, clause classification, and cross-reference resolution) leveraging Google Gemini AI, Supabase vector storage, inline clause previews, automated risk flagging, and natural language querying.",
+    tech: ["React 19", "Next.js 16", "TypeScript", "Google Gemini AI", "Supabase", "Vitest"],
+    github: "https://github.com/akashdeepjaiswal/contractlens",
+    live: "https://contractlens-taupe.vercel.app"
   },
   {
     number: "02",
-    title: "ToDo App",
-    subtitle: "React Website (March 2021)",
-    desc: "Built a ToDo Application website from scratch using React.js. Implemented features like CRUD operations interacting with server API.",
-    tech: ["React.js", "CSS"],
-    github: "https://github.com/akashdeepjaiswal/todo-App"
+    title: "Amazon Clone",
+    subtitle: "E-Commerce Platform",
+    desc: "Built an e-commerce storefront using React.js featuring product catalog browsing, real-time cart functionality, user authentication, and checkout simulation.",
+    tech: ["React.js", "JavaScript", "CSS3", "Context API"],
+    github: "https://github.com/akashdeepjaiswal/Amazon"
   },
   {
     number: "03",
     title: "Covid-19 Tracker",
-    subtitle: "React Website (Feb 2021)",
-    desc: "Built Covid-19 tracker website from scratch using React.js concepts like Hooks, Fetch API. Implemented features like filter by country for pandemic data visualization.",
+    subtitle: "Data Analytics & Visualization",
+    desc: "Built a responsive Covid-19 tracking application from scratch using React Hooks, Fetch API, and interactive chart visualizations with global country-level filtering.",
     tech: ["React.js", "Hooks", "Fetch API", "Charts"],
     github: "https://github.com/akashdeepjaiswal/CovidTracker"
   },
   {
     number: "04",
+    title: "ToDo App",
+    subtitle: "Task Management Web App",
+    desc: "Built a full-featured ToDo application from scratch using React.js featuring real-time CRUD operations interacting with server API, and responsive UI.",
+    tech: ["React.js", "REST APIs", "CSS3"],
+    github: "https://github.com/akashdeepjaiswal/todo-App"
+  },
+  {
+    number: "05",
     title: "Keeper App",
-    subtitle: "React Website (Jan 2021)",
-    desc: "A clean notes application made using React.js with Event Handling and Controlled Components, built with React Hooks.",
-    tech: ["React.js", "React Hooks", "CSS"],
+    subtitle: "Note-Taking Web App",
+    desc: "A clean notes application inspired by Google Keep, built using React.js with Event Handling, Controlled Components, and React Hooks.",
+    tech: ["React.js", "React Hooks", "CSS3"],
     github: "https://github.com/akashdeepjaiswal/KeeperApp"
   }
 ];
