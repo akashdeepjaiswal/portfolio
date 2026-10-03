@@ -467,6 +467,8 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     animation: float-pill 4s ease-in-out infinite alternate;
+    z-index: 10;
+    white-space: nowrap;
 }
 
 [data-theme="light"] .hero-floating-pill {
@@ -476,9 +478,9 @@ h1, h2, h3, h4, h5, h6 {
     color: #0f172a;
 }
 
-.float-pill-1 { top: 25px; left: -30px; }
-.float-pill-2 { bottom: 30px; right: -30px; animation-delay: 2s; }
-.float-pill-3 { bottom: -15px; left: 20px; animation-delay: 1s; }
+.float-pill-1 { top: -22px; left: -15px; }
+.float-pill-2 { bottom: 40px; right: -30px; animation-delay: 2s; }
+.float-pill-3 { bottom: -18px; left: 20px; animation-delay: 1s; }
 
 @keyframes float-pill {
     0% { transform: translateY(0); }
